@@ -1,0 +1,180 @@
+/* Rotating gradient button styles */
+.rotatingGradient {
+  --r: 0deg;
+  --color-text: #eeeeee; /* consistent light text for both themes */
+  --color-background: rgba(17,17,17,0.85); /* dark inner fill even in light mode */
+  /* High-contrast wedges so rotation is clearly visible */
+  background: conic-gradient(from var(--r),
+    #000 0deg,
+    #0a0a0a 30deg,
+    #0b132b 60deg,
+    #0a0a0a 90deg,
+    #111 120deg,
+    #0f172a 150deg,
+    #0a0a0a 180deg,
+    #001d3d 210deg,
+    #0a0a0a 240deg,
+    #003566 270deg,
+    #0a0a0a 300deg,
+    #111 330deg,
+    #000 360deg);
+  animation: rotateGrad 6s linear infinite;
+}
+
+.dark .rotatingGradient {
+  --color-text: #eeeeee;
+  --color-background: rgba(0,0,0,0.55);
+}
+
+@keyframes rotateGrad {
+  0% { --r: 0deg; }
+  100% { --r: 360deg; }
+}
+
+.rotatingGradient:hover::after {
+  opacity: 0.95;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .custom-scrollbar {
+    scrollbar-width: auto;
+    scrollbar-color: #6b7280 #e5e7eb;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #e5e7eb;
+    border-radius: 3px;
+    margin: 2px 0;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #4b5563;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:active {
+    background: #374151;
+  }
+  
+  .dark .custom-scrollbar {
+    scrollbar-color: #9ca3af #374151;
+  }
+  
+  .dark .custom-scrollbar::-webkit-scrollbar-track {
+    background: #374151;
+    border: 1px solid #4b5563;
+  }
+  
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border: 1px solid #374151;
+  }
+  
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #d1d5db;
+  }
+  
+  .dark .custom-scrollbar::-webkit-scrollbar-thumb:active {
+    background: #f3f4f6;
+  }
+}
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', sans-serif;
+    --font-poppins: 'Poppins', sans-serif;
+    --font-playfair: 'Playfair Display', serif;
+  }
+}
+
+  @layer base {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 222.2 84% 4.9%;
+
+      --card: 0 0% 100%;
+      --card-foreground: 222.2 84% 4.9%;
+
+      --popover: 0 0% 100%;
+      --popover-foreground: 222.2 84% 4.9%;
+
+      --primary: 222.2 47.4% 11.2%;
+      --primary-foreground: 210 40% 98%;
+
+      --secondary: 210 40% 96.1%;
+      --secondary-foreground: 222.2 47.4% 11.2%;
+
+      --muted: 210 40% 96.1%;
+      --muted-foreground: 215.4 16.3% 46.9%;
+
+      --accent: 210 40% 96.1%;
+      --accent-foreground: 222.2 47.4% 11.2%;
+
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 210 40% 98%;
+
+      --border: 214.3 31.8% 91.4%;
+      --input: 214.3 31.8% 91.4%;
+      --ring: 222.2 84% 4.9%;
+
+      --radius: 0.5rem;
+    }
+
+    .dark {
+      --background: 222.2 84% 4.9%;
+      --foreground: 210 40% 98%;
+
+      --card: 222.2 84% 4.9%;
+      --card-foreground: 210 40% 98%;
+
+      --popover: 222.2 84% 4.9%;
+      --popover-foreground: 210 40% 98%;
+
+      --primary: 210 40% 98%;
+      --primary-foreground: 222.2 47.4% 11.2%;
+
+      --secondary: 217.2 32.6% 17.5%;
+      --secondary-foreground: 210 40% 98%;
+
+      --muted: 217.2 32.6% 17.5%;
+      --muted-foreground: 215 20.2% 65.1%;
+
+      --accent: 217.2 32.6% 17.5%;
+      --accent-foreground: 210 40% 98%;
+
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 40% 98%;
+
+      --border: 217.2 32.6% 17.5%;
+      --input: 217.2 32.6% 17.5%;
+      --ring: 212.7 26.8% 83.9%;
+    }
+  }
+
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
+  }
