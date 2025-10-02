@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Info } from "lucide-react";
 import Link from "next/link";
-import { Squares } from "@/components/ui/squares-background";
 
 const AnalysisPage = () => {
   const { toast } = useToast()
@@ -37,24 +36,8 @@ const AnalysisPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black relative pt-16">
-      {/* Squares Background */}
-      <div className="absolute inset-0 z-0">
-        <Squares 
-          direction="diagonal"
-          speed={0.5}
-          squareSize={40}
-          borderColor="#666"
-          hoverFillColor="#2a2a2a"
-        />
-      </div>
-      
-      {/* Overlay for better contrast */}
-      <div className="absolute inset-0 z-5 bg-white/40 dark:bg-black/0" />
-      
-      
-      
-      <div className="container mx-auto px-4 pt-4 pb-12 relative z-10">
+    <div className="min-h-screen bg-gray-50 dark:bg-black pt-16">
+      <div className="container mx-auto px-4 pt-4 pb-12">
         <div className="text-center mb-12">
           <h1 className="text-6xl font-bold text-black dark:text-white mb-6 font-playfair">
             MedScan

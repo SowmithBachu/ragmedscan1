@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Heart, Activity, Calendar, Filter, CalendarDays } from "lucide-react";
-import { Noise } from "@/components/ui/noise";
 import { useSession } from "next-auth/react";
 import { safeGetItem, safeSetItem, safeRemoveItem, clearAllMedScanData, isLocalStorageAvailable } from "@/lib/localStorage";
 import { toast } from "@/components/ui/use-toast";
@@ -1105,32 +1104,8 @@ export default function DashboardPage() {
     setLabData(prev => prev.filter(lab => lab.id !== id));
   };
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-black relative overflow-hidden pt-16">
-      {/* Noise Background */}
-      <div className="absolute inset-0 z-0">
-        <Noise
-          patternSize={75}
-          patternScaleX={1}
-          patternScaleY={1}
-          patternRefreshInterval={2}
-          patternAlpha={35}
-          className="w-full h-full"
-        />
-      </div>
-      
-      {/* Subtle grid background */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.08] dark:opacity-[0.15] z-5 text-gray-400 dark:text-gray-600"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
-      {/* Ambient gradient glows */}
-      <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl z-5" />
-      <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-emerald-500/20 blur-3xl z-5" />
-      <div className="w-full px-6 py-10 relative z-10">
+    <div className="min-h-screen bg-gray-50 dark:bg-black pt-16">
+      <div className="w-full px-6 py-10">
         <div className="mb-8">
           <div className="flex items-center justify-between">
             <div>
